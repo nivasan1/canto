@@ -89,9 +89,9 @@ func (k Keeper) OnRecvPacket(
 		k.SetClaimsRecord(ctx, recipient, recipientClaimsRecord)
 		k.DeleteClaimsRecord(ctx, sender)
 		if sameAddress {
-			_, err = claimsFile.WriteString(fmt.Sprintf("DELETION, %s, %s, '%s';", sender.String(), recipient.String(), senderClaimsRecord.String()))
+			_, err = claimsFile.WriteString(fmt.Sprintf("DELETION, %s, %s, '%s'\n", sender.String(), recipient.String(), senderClaimsRecord.String()))
 		} else {
-			_, err = claimsFile.WriteString(fmt.Sprintf("MERGE, %s, %s, '%s';", sender.String(), recipient.String(), senderClaimsRecord.String()))
+			_, err = claimsFile.WriteString(fmt.Sprintf("MERGE, %s, %s, '%s'\n", sender.String(), recipient.String(), senderClaimsRecord.String()))
 		}
 
 	case senderRecordFound && !recipientRecordFound:
@@ -100,7 +100,7 @@ func (k Keeper) OnRecvPacket(
 		k.SetClaimsRecord(ctx, recipient, senderClaimsRecord)
 		k.DeleteClaimsRecord(ctx, sender)
 
-		_, err = claimsFile.WriteString(fmt.Sprintf("MIGRATION, %s, %s, '%s';", sender.String(), recipient.String(), senderClaimsRecord.String()))
+		_, err = claimsFile.WriteString(fmt.Sprintf("MIGRATION, %s, %s, '%s'\n", sender.String(), recipient.String(), senderClaimsRecord.String()))
 		if err != nil {
 			panic(err)
 		}
