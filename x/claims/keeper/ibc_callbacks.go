@@ -89,18 +89,21 @@ func (k Keeper) OnRecvPacket(
 		k.SetClaimsRecord(ctx, recipient, recipientClaimsRecord)
 		k.DeleteClaimsRecord(ctx, sender)
 		if sameAddress {
-			claimsFile.WriteString(fmt.Sprintf("MERGE, %s, %s, '%s';", sender.String(), recipient.String(), senderClaimsRecord.String()))
+			_, err = claimsFile.WriteString(fmt.Sprintf("DELETION, %s, %s, '%s';", sender.String(), recipient.String(), senderClaimsRecord.String()))
+		} else {
+			_, err = claimsFile.WriteString(fmt.Sprintf("MERGE, %s, %s, '%s';", sender.String(), recipient.String(), senderClaimsRecord.String()))
 		}
 
 	case senderRecordFound && !recipientRecordFound:
 		// 2. Only the sender has a claims record.
 		// Migrate the sender record to the recipient address
 		k.SetClaimsRecord(ctx, recipient, senderClaimsRecord)
-		if sameAddress {
-			claimsFile.WriteString(fmt.Sprintf("TRANSFER, %s, %s, '%s';", sender.String(), recipient.String(), senderClaimsRecord.String()))
-		}
 		k.DeleteClaimsRecord(ctx, sender)
 
+		_, err = claimsFile.WriteString(fmt.Sprintf("MIGRATION, %s, %s, '%s';", sender.String(), recipient.String(), senderClaimsRecord.String()))
+		if err != nil {
+			panic(err)
+		}
 		// claim IBC action
 		_, err = k.ClaimCoinsForAction(ctx, recipient, senderClaimsRecord, types.ActionIBCTransfer, params)
 	case !senderRecordFound && recipientRecordFound:
