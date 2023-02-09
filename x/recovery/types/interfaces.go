@@ -25,8 +25,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
-	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
+	transfertypes "github.com/davidterpay/ibc-go/modules/apps/transfer/types"
+	channeltypes "github.com/davidterpay/ibc-go/modules/core/04-channel/types"
 
 	claimstypes "github.com/evmos/evmos/v11/x/claims/types"
 )

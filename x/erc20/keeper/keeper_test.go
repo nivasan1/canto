@@ -50,11 +50,11 @@ import (
 	"github.com/evmos/evmos/v11/x/erc20/types"
 	inflationtypes "github.com/evmos/evmos/v11/x/inflation/types"
 
-	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
-	clienttypes "github.com/cosmos/ibc-go/v6/modules/core/02-client/types"
-	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
-	ibcgotesting "github.com/cosmos/ibc-go/v6/testing"
-	ibcgotestinghelpers "github.com/cosmos/ibc-go/v6/testing/simapp/helpers"
+	transfertypes "github.com/davidterpay/ibc-go/modules/apps/transfer/types"
+	clienttypes "github.com/davidterpay/ibc-go/modules/core/02-client/types"
+	channeltypes "github.com/davidterpay/ibc-go/modules/core/04-channel/types"
+	ibcgotesting "github.com/davidterpay/ibc-go/testing"
+	ibcgotestinghelpers "github.com/davidterpay/ibc-go/testing/simapp/helpers"
 	teststypes "github.com/evmos/evmos/v11/types/tests"
 	"github.com/evmos/evmos/v11/utils"
 )

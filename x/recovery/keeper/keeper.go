@@ -26,9 +26,9 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
-	clienttypes "github.com/cosmos/ibc-go/v6/modules/core/02-client/types"
-	porttypes "github.com/cosmos/ibc-go/v6/modules/core/05-port/types"
-	"github.com/cosmos/ibc-go/v6/modules/core/exported"
+	clienttypes "github.com/davidterpay/ibc-go/modules/core/02-client/types"
+	porttypes "github.com/davidterpay/ibc-go/modules/core/05-port/types"
+	"github.com/davidterpay/ibc-go/modules/core/exported"
 
 	"github.com/evmos/evmos/v11/x/recovery/types"
 )

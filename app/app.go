@@ -104,24 +104,24 @@ import (
 	upgradekeeper "github.com/cosmos/cosmos-sdk/x/upgrade/keeper"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
-	ibctestingtypes "github.com/cosmos/ibc-go/v6/testing/types"
+	ibctestingtypes "github.com/davidterpay/ibc-go/testing/types"
 
-	ibctransfer "github.com/cosmos/ibc-go/v6/modules/apps/transfer"
-	ibctransfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
-	ibc "github.com/cosmos/ibc-go/v6/modules/core"
-	ibcclient "github.com/cosmos/ibc-go/v6/modules/core/02-client"
-	ibcclientclient "github.com/cosmos/ibc-go/v6/modules/core/02-client/client"
-	ibcclienttypes "github.com/cosmos/ibc-go/v6/modules/core/02-client/types"
-	porttypes "github.com/cosmos/ibc-go/v6/modules/core/05-port/types"
-	ibchost "github.com/cosmos/ibc-go/v6/modules/core/24-host"
-	ibckeeper "github.com/cosmos/ibc-go/v6/modules/core/keeper"
-	ibctesting "github.com/cosmos/ibc-go/v6/testing"
+	ibctransfer "github.com/davidterpay/ibc-go/modules/apps/transfer"
+	ibctransfertypes "github.com/davidterpay/ibc-go/modules/apps/transfer/types"
+	ibc "github.com/davidterpay/ibc-go/modules/core"
+	ibcclient "github.com/davidterpay/ibc-go/modules/core/02-client"
+	ibcclientclient "github.com/davidterpay/ibc-go/modules/core/02-client/client"
+	ibcclienttypes "github.com/davidterpay/ibc-go/modules/core/02-client/types"
+	porttypes "github.com/davidterpay/ibc-go/modules/core/05-port/types"
+	ibchost "github.com/davidterpay/ibc-go/modules/core/24-host"
+	ibckeeper "github.com/davidterpay/ibc-go/modules/core/keeper"
+	ibctesting "github.com/davidterpay/ibc-go/testing"
 
-	ica "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts"
-	icahost "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/host"
-	icahostkeeper "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/host/keeper"
-	icahosttypes "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/host/types"
-	icatypes "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/types"
+	ica "github.com/davidterpay/ibc-go/modules/apps/27-interchain-accounts"
+	icahost "github.com/davidterpay/ibc-go/modules/apps/27-interchain-accounts/host"
+	icahostkeeper "github.com/davidterpay/ibc-go/modules/apps/27-interchain-accounts/host/keeper"
+	icahosttypes "github.com/davidterpay/ibc-go/modules/apps/27-interchain-accounts/host/types"
+	icatypes "github.com/davidterpay/ibc-go/modules/apps/27-interchain-accounts/types"
 
 	ethante "github.com/evmos/evmos/v11/app/ante/evm"
 	"github.com/evmos/evmos/v11/encoding"
@@ -565,6 +565,8 @@ func NewEvmos(
 		app.IBCKeeper.ChannelKeeper, &app.IBCKeeper.PortKeeper,
 		app.AccountKeeper, app.BankKeeper, scopedTransferKeeper,
 		app.Erc20Keeper, // Add ERC20 Keeper for ERC20 transfers
+		app.IBCKeeper.ClientKeeper,
+		app.IBCKeeper.ConnectionKeeper,
 	)
 
 	app.RecoveryKeeper = recoverykeeper.NewKeeper(

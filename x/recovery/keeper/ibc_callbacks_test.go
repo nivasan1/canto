@@ -13,11 +13,11 @@ import (
 	"github.com/evmos/evmos/v11/testutil"
 	"github.com/stretchr/testify/mock"
 
-	transfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
-	clienttypes "github.com/cosmos/ibc-go/v6/modules/core/02-client/types"
-	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
-	ibcgotesting "github.com/cosmos/ibc-go/v6/testing"
-	ibcmock "github.com/cosmos/ibc-go/v6/testing/mock"
+	transfertypes "github.com/davidterpay/ibc-go/modules/apps/transfer/types"
+	clienttypes "github.com/davidterpay/ibc-go/modules/core/02-client/types"
+	channeltypes "github.com/davidterpay/ibc-go/modules/core/04-channel/types"
+	ibcgotesting "github.com/davidterpay/ibc-go/testing"
+	ibcmock "github.com/davidterpay/ibc-go/testing/mock"
 
 	claimstypes "github.com/evmos/evmos/v11/x/claims/types"
 	incentivestypes "github.com/evmos/evmos/v11/x/incentives/types"

@@ -6,9 +6,9 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
-	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
-	host "github.com/cosmos/ibc-go/v6/modules/core/24-host"
+	"github.com/davidterpay/ibc-go/modules/apps/transfer/types"
+	channeltypes "github.com/davidterpay/ibc-go/modules/core/04-channel/types"
+	host "github.com/davidterpay/ibc-go/modules/core/24-host"
 	"github.com/evmos/evmos/v11/testutil"
 	erc20types "github.com/evmos/evmos/v11/x/erc20/types"
 	"github.com/evmos/evmos/v11/x/ibc/transfer/keeper"
@@ -273,6 +273,8 @@ func (suite *KeeperTestSuite) TestTransfer() {
 				mockChannelKeeper, &suite.app.IBCKeeper.PortKeeper,
 				suite.app.AccountKeeper, suite.app.BankKeeper, suite.app.ScopedTransferKeeper,
 				suite.app.Erc20Keeper, // Add ERC20 Keeper for ERC20 transfers
+				suite.app.IBCKeeper.ClientKeeper,
+				suite.app.IBCKeeper.ConnectionKeeper,
 			)
 			msg := tc.malleate()
 

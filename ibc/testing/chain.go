@@ -30,9 +30,9 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	channeltypes "github.com/cosmos/ibc-go/v6/modules/core/04-channel/types"
-	ibcgotesting "github.com/cosmos/ibc-go/v6/testing"
-	"github.com/cosmos/ibc-go/v6/testing/mock"
+	channeltypes "github.com/davidterpay/ibc-go/modules/core/04-channel/types"
+	ibcgotesting "github.com/davidterpay/ibc-go/testing"
+	"github.com/davidterpay/ibc-go/testing/mock"
 
 	"github.com/evmos/evmos/v11/crypto/ethsecp256k1"
 	ethermint "github.com/evmos/evmos/v11/types"
